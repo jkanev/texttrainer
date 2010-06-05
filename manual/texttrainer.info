@@ -1,0 +1,19 @@
+<site>
+
+	<settings style="homepage">
+	</settings>
+
+	<author>
+		jacob kanev
+	</author>
+	
+	<description>
+		Short documentation for TextTrainer.
+	</description>
+	
+	<keyWords>
+	</keyWords>
+	
+	<include src="texttrainer.include"></include>
+
+</site>

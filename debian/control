@@ -1,0 +1,28 @@
+Source: texttrainer
+Section: misc
+Priority: extra
+Maintainer: Jacob Kanev <j_kanev@arcor.de>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.3
+Homepage: http://home.arcor.de/j_kanev/texttrainer.html
+
+Package: texttrainer
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: learn native or foreign language texts by heart
+ .
+ TextTrainer is a program which helps you memorise poems
+ or plain texts in your native or in some foreign language. You
+ learn by repeatedly reading aloud texts while more and more
+ words are hidden (i.e. replaced by "_"). This will help you learning
+ a poem, parts of your text for a play, or basic phrases of a
+ foreign language before you go on holiday.
+ .
+ Data files for TextTrainer can contain the plain text, as well
+ as translations and pronounciation guides. Data files can be
+ created with TextTrainer itself, or with any standard text editor.
+ .
+ Some example texts can be found in /usr/share/texttrainer/data,
+ other texts can be installed via separate packages, or you can
+ create your own.
+

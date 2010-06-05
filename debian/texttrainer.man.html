@@ -1,0 +1,165 @@
+Content-type: text/html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of TEXTTRAINER</TITLE>
+</HEAD><BODY>
+<H1>TEXTTRAINER</H1>
+Section: User Commands  (1)<BR><A HREF="#index">Index</A>
+<A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+texttrainer - program which helps you learn native or foreign language texts by heart
+<P>
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<B>texttrainer</B>
+
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>TextTrainer</B>
+
+is a program which helps you memorise poems or plain texts in your native or in some foreign language. You learn by repeatedly reading aloud texts while more and more words are hidden (i.e. replaced by &quot;_&quot;). This will help you learning a poem, parts of your text for a play, or basic phrases of a foreign language before you go on holiday.
+<P>
+Data files for
+<B>TextTrainer</B>
+
+can contain the plain text, as well as translations and pronounciation guides. Data files can be created with
+<B>TextTrainer </B>
+
+itself, or with any standard text editor.
+<P>
+Some example texts can be found in /usr/share/texttrainer/data, other texts can be installed via separate packages, or you can create your own.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H3>Learning Native Texts</H3>
+
+<P>
+After opening, the text will be visible in your main display. At the bottom there is a dropdown box &quot;learning curve&quot;, where you can select how quickly you would like
+<B>TextTrainer </B>
+
+to hide words, there is a
+<B>Repeat</B>
+
+button, and there is a
+<B>Next</B>
+
+button. Pressing
+<B>Repeat </B>
+
+will re-display the text with the same amount of words hidden (but different words), 
+<B>Next </B>
+
+will advance to the next step (more words hidden). Hidden words are displayed by underscores. Clicking a hidden word or marking a phrase displays it in the
+<B>hint </B>
+
+display to the right.
+
+
+<A NAME="lbAF">&nbsp;</A>
+<H3>Learning Foreign Language Texts</H3>
+
+<P>
+Follow all steps above. In addition, marked sections in the main display will produce hints in the hint display with translations for all languages.
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H3>Native Text Files</H3>
+
+<P>
+Files for
+<B>TextTrainer </B>
+
+are plain ASCII or utf-8 texts. Using File-&gt;New or File-&gt;Edit,
+<B>TextTrainer </B>
+
+can be used like a normal text editor.
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H3>Text Files with Translations</H3>
+
+<P>
+Text files with translations can be written in 
+<B>TextTrainer</B>
+
+, or in any standard text editor. They consist of the main part -- the text -- and at the end of the untranslated text there must be a dictionary. Since grammar calculations are done on the base of this dictionary, each phrase part for which the words have a different order in the translated language must be given separately:
+<P>
+
+Shall = Soll
+<BR>
+
+I = ich
+<BR>
+
+compare = vergleichen
+<BR>
+
+thee = Dich
+<BR>
+
+to = zu/mit
+<BR>
+
+a = ein/einer/eine
+<BR>
+
+summers = des Sommers
+<BR>
+
+day = Tag
+<BR>
+
+Shall I compare thee = Soll ich Dich vergleichen
+<BR>
+
+summers day = Sommertag
+<BR>
+
+to a summers day = mit einem Sommertag
+
+<P>
+Multiple langages are separated via &quot;|&quot;. Please make sure all phrases are translated into the same amount of languages, and in the same order.
+<P>
+
+day = Tag | jour | giorno
+
+<P>
+To create a translated text file using
+<B>TextTrainer,</B>
+
+first create a text file. Then mark words or phrases in the main view, and enter their translations in the hint view. [Enter] in the hint view starts a new language.
+<P>
+<A NAME="lbAI">&nbsp;</A>
+<H2>Author</H2>
+
+<P>
+Software and manual page provided by Jacob Kanev &lt;<A HREF="mailto:j_kanev@arcor.de">j_kanev@arcor.de</A>&gt;.
+<P>
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DL>
+<DT><A HREF="#lbAE">Learning Native Texts</A><DD>
+<DT><A HREF="#lbAF">Learning Foreign Language Texts</A><DD>
+<DT><A HREF="#lbAG">Native Text Files</A><DD>
+<DT><A HREF="#lbAH">Text Files with Translations</A><DD>
+</DL>
+<DT><A HREF="#lbAI">Author</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 15:10:50 GMT, August 27, 2008
+</BODY>
+</HTML>

@@ -1,0 +1,101 @@
+.TH TEXTTRAINER 1
+
+.SH NAME
+texttrainer \- program which helps you learn native or foreign language texts by heart
+
+.SH SYNOPSIS
+.B texttrainer
+
+.SH DESCRIPTION
+
+.B TextTrainer
+is a program which helps you memorise poems or plain texts in your native or in some foreign language. You learn by repeatedly reading aloud texts while more and more words are hidden (i.e. replaced by "_"). This will help you learning a poem, parts of your text for a play, or basic phrases of a foreign language before you go on holiday.
+
+Data files for
+.B TextTrainer
+can contain the plain text, as well as translations and pronounciation guides. Data files can be created with
+.B TextTrainer 
+itself, or with any standard text editor.
+
+Some example texts can be found in /usr/share/texttrainer/data, other texts can be installed via separate packages, or you can create your own.
+
+.SS Learning Native Texts
+
+After opening, the text will be visible in your main display. At the bottom there is a dropdown box "learning curve", where you can select how quickly you would like
+.B TextTrainer 
+to hide words, there is a
+.B Repeat
+button, and there is a
+.B Next
+button. Pressing
+.B Repeat 
+will re-display the text with the same amount of words hidden (but different words), 
+.B Next 
+will advance to the next step (more words hidden). Hidden words are displayed by underscores. Clicking a hidden word or marking a phrase displays it in the
+.B hint 
+display to the left.
+.BR
+
+.SS Learning Foreign Language Texts
+
+Follow all steps above. In addition, marked sections in the main display will produce hints in the hint display with translations for all languages.
+
+.SS Native Text Files
+
+Files for
+.B TextTrainer 
+are plain ASCII or utf-8 texts. Press the "New File" button in the toolbar, and then press "Edit Text" in the toolbar.
+.B TextTrainer 
+can now be used like a normal text editor. Press the "Display" button in the toolbar to get back to normal mode.
+
+.SS Text Files with Translations
+
+Text files with translations can be written in 
+.B TextTrainer
+ or in any standard text editor.
+
+To create a translated text file using
+.B TextTrainer,
+first enter the untranslated text in edit mode (see above). Press "Edit Translations" in the toolbar. Mark words or phrases in the main view, and enter their translations in the hint view. [Enter] in the hint view starts a new language. Press "Display" in the toolbar to get back to main mode.
+
+
+Translated text files can be created by any text editor. They consist of the main part -- the text -- and at the end of the untranslated text there must be a dictionary. Since grammar calculations are done on the base of this dictionary, each phrase part for which the words have a different order in the translated language must be given separately:
+
+.in +4
+Shall = Soll
+.br
+I = ich
+.br
+compare = vergleichen
+.br
+thee = Dich
+.br
+to = zu/mit
+.br
+a = ein/einer/eine
+.br
+summers = des Sommers
+.br
+day = Tag
+.br
+Shall I compare thee = Soll ich Dich vergleichen
+.br
+summers day = Sommertag
+.br
+to a summers day = mit einem Sommertag
+.in
+
+Multiple langages are separated via "|". Please make sure all phrases are translated into the same amount of languages, and in the same order.
+
+.in +4
+day = Tag | jour | giorno
+.in
+
+.SH SEE ALSO
+
+Html documentation in /usr/share/doc/texttrainer/manual.
+
+.SH Author
+
+Software and manual page provided by Jacob Kanev <j_kanev@arcor.de>.
+

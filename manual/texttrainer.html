@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/DTD/loose.dtd">
+	<html>
+
+		<head>
+			<title>jacob kanev :: software :: texttrainer</title>
+			<link rel="stylesheet" type="text/css" href="style/style.css">
+			<meta name="description" content="Short documentation for TextTrainer.">
+			<meta name="author" content="jacob kanev">
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+			<meta name="keywords" content="">
+		</head>
+
+		<body>
+			<div style="position: relative; width=100%; height=1em;">&nbsp;</div>
+			<div class="main">
+				
+				<div class=navbar>
+					<div class="naventry0" style="font-style: italic">texttrainer</div>
+	
+				</div>
+				<div class="pagetext">
+					<div class="contentwrap"><H1>Text Trainer</H1>
+
+<em>TextTrainer</em> is a program which helps you memorise poems or plain texts in your native or in some foreign language. You learn by repeatedly reading aloud texts while more and more words are hidden (i.e. replaced by &quot;_&quot;). This will help you learning a poem, parts of your text for a play, or basic phrases of a foreign language before you go on holiday.
+<P>
+Data files for  <em>TextTrainer</em>  can contain the plain text, as well as translations and pronounciation guides. Data files can be created with
+<B>TextTrainer </B>
+
+itself, or with any standard text editor.
+<P>
+Some example texts can be found in /usr/share/texttrainer/data, other texts can be installed via separate packages, or you can create your own.
+<span class="image">
+<img style="position:relative; left: 2em; top: 2em; border-color: #a0a0a0; border-style: solid; border-width: 4px;" src="texttrainer_images/translatedText3.jpg">
+</span>
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>Learning Native Texts</H2>
+
+<i>Click on any picture to enlarge.</i>
+<P>
+After opening, the text will be visible in your main display.
+<div class="smallimage">
+	<a href="texttrainer_images/freshText.jpg">
+		<img class="small" src="texttrainer_images/freshText.jpg">
+	</a><br>
+	after loading plain text
+</div>
+At the bottom there is a dropdown box &quot;learning curve&quot;, where you can select how quickly you would like <B>TextTrainer </B> to hide words, there is a
+<B>Repeat</B> button, and there is a <B>Next</B> button. Pressing <B>Repeat </B> will re-display the text with the same amount of words hidden (but different words), <B>Next </B>
+<div class="smallimage">
+	<a href="texttrainer_images/text15.jpg">
+		<img class="small" src="texttrainer_images/text15.jpg">
+	</a><br>
+	progress 15%
+</div>
+<div class="smallimage">
+	<a href="texttrainer_images/text94.jpg">
+		<img class="small" src="texttrainer_images/text94.jpg">
+	</a><br>
+	progress 94%
+</div>
+ will advance to the next step (more words hidden). Hidden words are displayed by underscores. Clicking a hidden word
+<div class="smallimage">
+	<a href="texttrainer_images/hintWordUni.jpg">
+		<img class="small" src="texttrainer_images/hintWordUni.jpg">
+	</a><br>
+	hint for a word
+</div>
+ <div class="smallimage">
+	<a href="texttrainer_images/hintPhraseUni.jpg">
+		<img class="small" src="texttrainer_images/hintPhraseUni.jpg">
+	</a><br>
+	hint for a phrase
+</div>
+or marking a phrase displays it in the <B>hint </B> display to the left.
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>Learning Foreign Language Texts</H2>
+
+<P>
+Follow all steps above. In addition, marked sections in the main display will produce hints in the hint display with translations for all languages.
+<div class="smallimage">
+	<a href="texttrainer_images/translatedText0.jpg">
+		<img class="small" src="texttrainer_images/translatedText0.jpg">
+	</a><br>
+	translation for one word
+</div>
+<div class="smallimage">
+	<a href="texttrainer_images/translatedText3.jpg">
+		<img class="small" src="texttrainer_images/translatedText3.jpg">
+	</a><br>
+		translation for a phrase
+</div>
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>Native Text Files</H2>
+
+Files for <em>TextTrainer</em> are plain ASCII or utf-8 texts. Press the "New File" button in the toolbar, and then press "Edit Text" in the toolbar.
+<em>TextTrainer</em> can now be used like a normal text editor. Press the "Display" button in the toolbar to get back to normal mode.
+<div class="smallimage">
+	<a href="texttrainer_images/editText.jpg">
+		<img class="small" src="texttrainer_images/editText.jpg">
+	</a><br>
+		entering plain text
+</div>
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H2>Text Files with Translations</H2>
+
+<P>
+Text files with translations can be written in <em>TextTrainer</em>, or in any standard text editor. 
+
+<P>
+To create a translated text file using <em>TextTrainer,</em> first enter the untranslated text in edit mode (see above). Press "Edit Translations" in the toolbar. Mark words or phrases in the main view, and enter their translations in the hint view. [Enter] in the hint view starts a new language. Press "Display" in the toolbar to get back to main mode.
+<div class="smallimage">
+	<a href="texttrainer_images/editTranslations.jpg">
+		<img class="small" src="texttrainer_images/editTranslations.jpg">
+	</a><br>
+		entering translation for a marked phrase
+</div>
+[Enter] in the hint view starts a new language. To add a translation for a group of words, mark that group and type the translation into the left view.
+<div class="smallimage">
+	<a href="texttrainer_images/editTranslationPre.jpg">
+		<img class="small" src="texttrainer_images/editTranslationPre.jpg">
+	</a><br>
+		marking an untranslated phrase
+</div>
+<P>
+Translated text files can be created by any text editor. They consist of the main part -- the text -- and at the end of the untranslated text there must be a dictionary. Since grammar calculations are done on the base of this dictionary, each phrase part for which the words have a different order in the translated language must be given separately:
+<P>
+
+<pre>
+	Shall = Soll
+	I = ich
+	compare = vergleichen
+	thee = Dich
+	to = zu/mit
+	a = ein/einer/eine
+	summers = des Sommers
+	day = Tag
+	Shall I compare thee = Soll ich Dich vergleichen
+	summers day = Sommertag
+	to a summers day = mit einem Sommertag
+</pre>
+<P>
+Multiple langages are separated via &quot;|&quot;. Please make sure all phrases are translated into the same amount of languages, and in the same order.
+<P>
+
+<pre>
+	summers = des Sommers | de l'été | d'estate
+	day = Tag | jour | giorno
+</pre>
+<P></div>
+				</div>
+				<div class="footer">
+					
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</body>
+	</html>
+

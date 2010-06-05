@@ -1,0 +1,69 @@
+body {
+	background-color: #ffffff;
+}
+
+div.backg {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	z-index: 0;
+}
+
+div.menu {
+	position: absolute;
+	top: 2em;
+	left: 50%;
+	color: #800000;
+	font-size: 1.6em;
+	line-height: 2.2em;
+	font-family: freeserif, serif;
+	z-index: 1;
+}
+
+div.naventry0 {
+	display: none;
+}
+
+div.naventry1 {
+	position: relative;
+	float: left;
+	clear: left;
+}
+
+div.author {
+	font-variant: italic;
+	font-size: 1.2em;
+	color: #303030;
+	position: relative;
+	float: left;
+	clear: left;
+}
+
+div.logo {
+	position: relative;
+	float: left;
+	clear: left;
+	margin-top: 2em;
+	width: 4em;
+	height: 3em;
+	background-image: url("../graphics/dark.jpg");
+	background-position: bottom center;
+}
+
+a.navbar {
+	color: #800000;
+	font-size: 1.5em;
+	line-height: 2em;
+	font-family: freeserif, serif;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+a:hover {
+	color: #ff0000;
+	font-size: 1.5em;
+	line-height: 2em;
+	font-family: freeserif, serif;
+	text-decoration: none;
+}
+

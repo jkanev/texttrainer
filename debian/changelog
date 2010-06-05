@@ -1,0 +1,32 @@
+texttrainer (0.0.4-1) unstable; urgency=low
+
+  * Added i18n and introduced German translation. Introduced persistance
+    (last used file, last used language).
+
+ -- Jacob Kanev <j_kanev@arcor.de>  Sun, 20 Sep 2009 18:17:09 +0200
+
+texttrainer (0.0.3-1) unstable; urgency=low
+
+  * Splitted software and packaging, creating a non-native package.
+
+ -- Jacob Kanev <j_kanev@arcor.de>  Fri, 16 Jan 2009 08:33:21 +0100
+
+texttrainer (0.0.2) unstable; urgency=low
+
+  * Fixed crash when loading translated text-file a second time.
+  * Made main window resisable.
+
+ -- Jacob Kanev <j_kanev@arcor.de>  Sun, 02 Nov 2008 16:28:00 +0100
+
+texttrainer (0.0.1) unstable; urgency=low
+
+  * Minor changes in package description, manpage, and html documentation
+
+ -- Jacob Kanev <j_kanev@arcor.de>  Mon, 29 Sep 2008 12:55:56 +0200
+
+texttrainer (0.0.0) unstable; urgency=low
+
+  * Initial release
+
+ -- Jacob Kanev <j_kanev@arcor.de>  Tue, 26 Aug 2008 18:33:44 +0200
+
