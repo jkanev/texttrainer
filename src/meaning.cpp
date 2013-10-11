@@ -165,20 +165,16 @@ QString Meaning::changeUsingDisplayString(QString displayString)
 	// split according to display
 	QStringList newContent = displayString.split(  QRegExp( "(" + meaningDisplayDelimiter + ")+|(\n)" )  );
 	
-	// remove empty ending
-//	if (newContent.last() == "")
-//		newContent.pop_back();
-	
 	// ignore not-allowed changes
-	if (meaningTranslations[0] != newContent[0])
-		return toDisplayString();
+    if (meaningTranslations[0] != newContent[0])
+        return toDisplayString();
 	for (int i=0; i<newContent.size(); ++i)
 		if (newContent[i].contains("_"))
 			return toDisplayString();
 			
 	// add new translations, skipping deleted ones
 	uint m=0;
-	for ( ; m<newContent.size(); ++m) {
+    for ( ; m<(uint)newContent.size(); ++m) {
 		if (meaningTranslations.size() <= m)
 			meaningTranslations.push_back(newContent[m]);
 		else

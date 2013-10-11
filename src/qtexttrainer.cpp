@@ -11,6 +11,10 @@
 #include <QTextCodec>
 #include <QComboBox>
 
+#ifdef Q_OS_ANDROID
+#include <QAndroidStyle>
+#endif
+
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
@@ -25,14 +29,17 @@
 TextTrainer::TextTrainer(QApplication &parent)
 	: QMainWindow(), trainerSettings("TextTrainer", "TextTrainer")
 {
+    // save application
+    trainerParent = &parent;
+
 	// load language file
-QTranslator translator;
+    QTranslator translator;
 	QString locale
 			= QString("texttrainer_")
 			+ QLocale::system().name().replace( QRegExp("_.*"), "");
 	QString i18nDir = trainerSettings.value("i18n").toString();
 	translator.load(locale, i18nDir);
-	parent.installTranslator(&translator);
+    trainerParent->installTranslator(&translator);
 	
 	// translate help texts
 	helpTexts.init();
@@ -41,6 +48,8 @@ QTranslator translator;
 	trainerCurrentMeaning = 0;
 	trainerIgnoresMessages = false;
 	trainerMode = DISPLAY;
+	applyCurrentFontSize();
+	applyCurrentTheme();
 	setupUi(this);
 	setLearningCurve(0);
 	setMode(NO_FILE);
@@ -58,7 +67,7 @@ TextTrainer::~TextTrainer()
 
 
 //______________________________________________________________
-// clear all
+// set edit mode
 
 void TextTrainer::setMode(EditMode m)
 {
@@ -101,39 +110,73 @@ void TextTrainer::setMode(EditMode m)
 	// set gui
 	switch(trainerMode) {
 		case DISPLAY:
-			setGui(false, false, true, false, false, true);
-			labelHelp->setText ( helpTexts.modeDisplay );
-			break;
+            setGui(false, false, true, false, false, true, helpTexts.modeDisplay);
+            break;
 		case EDIT_TEXT:
-			setGui(true, false, false, true, false, false);
-			labelHelp->setText( helpTexts.modeEditText + helpTexts.gotoModeDisplay );
-			break;
+            setGui(true, false, false, true, false, false, helpTexts.modeEditText + helpTexts.gotoModeDisplay );
+            break;
 		case EDIT_TRANSLATIONS:
-			setGui(false, true, false, false, true, false);
-			labelHelp->setText( helpTexts.modeEditTranslations + helpTexts.gotoModeDisplay );
-			break;
+            setGui(false, true, false, false, true, false, helpTexts.modeEditTranslations + helpTexts.gotoModeDisplay);
+            break;
 		case NO_FILE:
-			setGui(false, false, true, false, false, false);
-			labelHelp->setText( helpTexts.modeNoFile );
-			break;
+            setGui(false, false, true, false, false, false, helpTexts.modeNoFile);
+            break;
 	}
 }
 
 
 //______________________________________________________________
-// clear all
+// initialise GUI
 
-void TextTrainer::setGui( bool writeMain, bool writeHint, bool file, bool editText, bool editTranslations, bool learningWidgets )
+void TextTrainer::setGui( bool writeMain, bool writeHint, bool file, bool editText, bool editTranslations, bool learningWidgets, const QString& helpText )
 {
 	// ro/rw mode of main views
-	textMain->setReadOnly(!writeMain);
-	textHint->setReadOnly(!writeHint);
+    textMain->setReadOnly(!writeMain);
+    textHint->setReadOnly(!writeHint);
 	
 	menuBar()->clear();
+
+#ifdef Q_OS_ANDROID
+    // file menu and tool bar
+    if (file) {
+        menuBar()->addMenu(menuFile);
+    }
+
+    // translation menu and tool bar
+    if (editTranslations) {
+        menuBar()->addMenu(menuEditTranslations);
+    }
+
+    // edit text tool bar and menu
+    if (editText) {
+        menuBar()->addMenu(menuEditText);
+    }
+
+    menuBar()->addMenu(menuHelp);
+    menuBar()->addMenu(menuSettings);
+
+    // learning helpers
+    if (learningWidgets) {
+        listLearningCurve->show();
+        listProgress->show();
+        pushRepeatStep->show();
+        pushNextStep->show();
+    } else {
+        listLearningCurve->hide();
+        listProgress->hide();
+        pushRepeatStep->hide();
+        pushNextStep->hide();
+    }
+
+    textHint->setText(helpText);
+    textHint->show();
+    pushHideHints->show();
+
+#else
 	
 	// file menu and tool bar
 	if (file) {
-		toolbarFile->show();
+        toolbarFile->show();
 		menuBar()->addMenu(menuFile);
 	} else {
 		toolbarFile->hide();
@@ -156,6 +199,7 @@ void TextTrainer::setGui( bool writeMain, bool writeHint, bool file, bool editTe
 	}
 	
 	menuBar()->addMenu(menuHelp);
+	menuBar()->addMenu(menuSettings);
 	
 	// learning helpers
 	if (learningWidgets) {
@@ -172,7 +216,11 @@ void TextTrainer::setGui( bool writeMain, bool writeHint, bool file, bool editTe
 		labelProgress->hide();
 		pushRepeatStep->hide();
 		pushNextStep->hide();
-	}
+    }
+
+    labelHelp->setText(helpText);
+
+#endif
 }
 
 //______________________________________________________________
@@ -194,6 +242,65 @@ void TextTrainer::clear()
 	textHint->setText("");
 	
 	setMode(NO_FILE);
+}
+
+//______________________________________________________________
+// change font size
+
+void TextTrainer::changeFontSize(int change)
+{
+	// read current value
+	int value = trainerSettings.value("FontSize").toInt();
+
+	// change according to settings
+	if (change==0)
+		value = 11;
+	else if (change==-1 && value>8)
+		value--;
+	else if (change==1)
+		value++;
+	else if (change>8)
+		value = change;
+
+	trainerSettings.setValue("FontSize", value);
+	applyCurrentFontSize();
+}
+
+void TextTrainer::applyCurrentFontSize()
+{
+	// if undefined in settings, set the settings value to system size
+	if (trainerSettings.value("FontSize").toInt() < 2) {
+		trainerSettings.setValue("FontSize", 11);
+	}
+	
+	// set the font size according to current settings
+	QString currentValue = trainerSettings.value("FontSize").toString();
+	trainerParent->setStyleSheet(" * {font-size: " + currentValue + "px}");
+}
+
+//______________________________________________________________
+// set a theme according to the name
+
+void TextTrainer::setTheme(QString name)
+{
+	trainerSettings.setValue("Theme", name);
+	applyCurrentTheme();
+}
+
+void TextTrainer::applyCurrentTheme()
+{
+	QString name = trainerSettings.value("Theme").toString();
+	
+	if (name=="morning")
+		trainerParent->setStyleSheet(" * {color: rgb(0, 20, 40); background-color: rgb(215, 215, 235);}");
+	else if (name=="day")
+		trainerParent->setStyleSheet(" * {color: rgb(0, 0, 0); background-color: rgb(255, 250, 245);}");
+	else if (name=="evening")
+		trainerParent->setStyleSheet(" * {color: rgb(255, 255, 255); background-color: rgb(40, 35, 30);}");
+	else if (name=="night")
+		trainerParent->setStyleSheet(" * {color: rgb(255, 255, 255); background-color: rgb(10, 20, 30);}");
+	else
+		trainerParent->setStyleSheet("");
 }
 
 //______________________________________________________________
@@ -639,7 +746,9 @@ void TextTrainer::displayCurrentText()
 	}
 	
 	// create and display string
+    trainerIgnoresMessages = true;
 	textMain->setText( createText(true, &trainerCharToWordTable) );
+    trainerIgnoresMessages = false;
 }
 
 
@@ -738,6 +847,15 @@ void TextTrainer::displayHint(int firstWord, int lastWord)
 
 void HelpTexts::init()
 {
+#ifdef Q_OS_ANDROID
+    modeNoFile = tr("To start, you must open a file (Menu / File / Open Text File) or start a new text (Menu / File / New). ");
+    modeDisplay = tr("Click on a word in the Main Text area to get hints or translations. Use the Repeat Step button to hide different words or the \"Next Step\" button to hide more words. ");
+    modeEditText = tr("Edit your text in the Main Text area. ");
+    modeEditTranslations = tr("Select a word or phrase in the Main Text area, and edit translations in the Hint area. Use NewLine to start a new translation. With the \"Arrow Up/Down\" key you select different translations. Brackets (\"[\" and \"]\") around words or phrases indicate existing translations. ");
+    gotoModeDisplay = tr("Use Menu / Edit / Display to go back to normal mode. ");
+    gotoModeEditText = tr("Use Menu / Edit / Edit Text to edit a text. ");
+    gotoModeEditTranslations = tr("Use Menu / Edit / Edit Translations to add or change translations. ");
+#else
 		modeNoFile = tr("To start, you must open a file (use button \"Open Text File\") or start a new text (use button \"Edit Text\"). ");
 		modeDisplay = tr("Click on a word in the \"Main Text\" area to get hints or translations. Use the \"Repeat Step\" button to hide different words or the \"Next Step\" button to hide more words. ");
 		modeEditText = tr("Edit your text in the \"Main Text\" area. ");
@@ -745,6 +863,7 @@ void HelpTexts::init()
 		gotoModeDisplay = tr("Use the \"Display\" button to go back to normal mode. ");
 		gotoModeEditText = tr("Use the \"Edit Text\" button to edit a text. ");
 		gotoModeEditTranslations = tr("Use the \"Edit Translations\" button to add or change translations. ");
+#endif
 };
 
 

@@ -1,5 +1,10 @@
 
+#ifdef Q_OS_ANDROID
+#include "ui_texttrainer-android.h"
+#else
 #include "ui_texttrainer.h"
+#endif
+
 #include "word.h"
 
 #include <QStringList>
@@ -42,51 +47,92 @@ class TextTrainer : public QMainWindow, public Ui::QTextTrainer
 		
 	public slots:
 	
-		void on_actionModeDisplay_activated() {
+        void on_actionModeDisplay_triggered() {
 			setMode(DISPLAY);
 		}
 		
-		void on_actionModeEditText_activated() {
+        void on_actionModeEditText_triggered() {
 			setMode(EDIT_TEXT);
 		}
 		
-		void on_actionModeEditTranslations_activated() {
+        void on_actionModeEditTranslations_triggered() {
 			setMode(EDIT_TRANSLATIONS);
 		}
 		
-		void on_actionNew_activated() {
+        void on_actionNew_triggered() {
 			clear();
-		}
+            setMode(EDIT_TEXT);
+        }
 		
-		void on_actionSave_activated() {
+        void on_actionSave_triggered() {
 			saveTextFile();
 		}
 		
-		void on_actionSaveAs_activated() {
+        void on_actionSaveAs_triggered() {
 			saveTextFile(false);
 		}
 		
-		/// the file open action is calling
-		void on_actionOpenTextFile_activated() {
+	/// the file open action is calling
+        void on_actionOpenTextFile_triggered() {
 			openTextFile();
-		};
+        }
 		
-		/// the translation file open action is calling
-		void on_actionOpenTranslationFile_activated() {
+	/// the translation file open action is calling
+        void on_actionOpenTranslationFile_triggered() {
 			openTranslationFile();
-		};
+        }
 		
-		/// the "show next" button has been released
-		void on_pushNextStep_released() {
-			displayNextText();
-		};
+	/// the "show next" button has been released
+	void on_pushNextStep_released() {
+		displayNextText();
+        }
 		
-		/// the "repeat" button is released
-		void on_pushRepeatStep_released() {
-			displayCurrentText();
-		};
+	/// the "repeat" button is released
+	void on_pushRepeatStep_released() {
+		displayCurrentText();
+	};
+
+        /// the "hide hints" button is released
+        void on_pushHideHints_released() {
+		textHint->hide();
+#ifdef Q_OS_ANDROID
+		pushHideHints->hide();
+#endif
+        };
 		
-		/// the text cursor position has changed
+        void on_actionIncreaseFont_triggered() {
+		changeFontSize(1);
+        }
+
+        void on_actionDecreaseFont_triggered() {
+		changeFontSize(-1);
+        }
+
+        void on_actionSystemFont_triggered() {
+		changeFontSize(0);
+        }
+        
+        void on_actionMorningTheme_triggered() {
+		setTheme("morning");
+	}
+	
+	void on_actionDayTheme_triggered() {
+		setTheme("day");
+	}
+	
+	void on_actionEveningTheme_triggered() {
+		setTheme("evening");
+	}
+	
+	void on_actionNightTheme_triggered() {
+		setTheme("night");
+	}
+	
+	void on_actionSystemTheme_triggered() {
+		setTheme("system");
+	}
+
+        /// the text cursor position has changed
 		void on_textMain_cursorPositionChanged() {
 			if (!trainerIgnoresMessages) {
 				trainerIgnoresMessages = true;
@@ -111,6 +157,10 @@ class TextTrainer : public QMainWindow, public Ui::QTextTrainer
 		
 		/// the text in the translation display has changed
 		void on_textHint_textChanged() {
+			textHint->show();
+#ifdef Q_OS_ANDROID
+			pushHideHints->show();
+#endif
 			if (!trainerIgnoresMessages) {
 				trainerIgnoresMessages = true;
 				if (trainerCurrentMeaning) {
@@ -138,7 +188,7 @@ class TextTrainer : public QMainWindow, public Ui::QTextTrainer
 	private:
 	
 		/// shows/hides toolbar and menu
-		void setGui( bool writeMain, bool writeHint, bool file, bool editText, bool editTranslations, bool displayLearningWidgets );
+        void setGui( bool writeMain, bool writeHint, bool file, bool editText, bool editTranslations, bool displayLearningWidgets, const QString& helpText );
 		
 		/// opens a text file
 		void openTextFile();
@@ -149,6 +199,22 @@ class TextTrainer : public QMainWindow, public Ui::QTextTrainer
 		/// saves a text file
 		void saveTextFile( bool useCurrentPath = true );
 		
+        /// changes the font size
+        /*! if change ==-1  size is decreased,
+            if change == 0  size is set according to system setting,
+            if change == 1  size is increased
+            if change  > 1  size is set to value of "change" */
+		void changeFontSize(int change);
+
+		/// applies the font size from settings to GUI
+		void applyCurrentFontSize();
+
+		/// writes a new theme into settings
+		void setTheme(QString name);
+
+		/// applies the currently set theme
+		void applyCurrentTheme();
+	    
 		/// displays the next text view
 		void displayNextText();
 		
@@ -190,6 +256,9 @@ class TextTrainer : public QMainWindow, public Ui::QTextTrainer
 		
 		/// clears all lists
 		void clear();
+
+        /// application
+        QApplication *trainerParent;
 		
 		/// settings
 		QSettings trainerSettings;

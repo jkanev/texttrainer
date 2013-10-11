@@ -129,7 +129,7 @@ Multiple langages are separated via &quot;|&quot;. Please make sure all phrases 
 <P>
 
 <pre>
-	summers = des Sommers | de l'été | d'estate
+	summers = des Sommers | de l'Ã©tÃ© | d'estate
 	day = Tag | jour | giorno
 </pre>
 <P>

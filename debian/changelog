@@ -1,3 +1,9 @@
+texttrainer (0.1.0-1) UNRELEASED; urgency=low
+
+  * Implemented changeable font size and themes.
+
+ -- Jacob Kanev <jacob@debian>  Fri, 11 Oct 2013 18:58:57 +0200
+
 texttrainer (0.0.4-1) unstable; urgency=low
 
   * Added i18n and introduced German translation. Introduced persistance

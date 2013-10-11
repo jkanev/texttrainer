@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>QTextTrainer</class>
- <widget class="QMainWindow" name="QTextTrainer" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="QTextTrainer">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,357 +10,458 @@
     <height>629</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="windowIcon" >
+  <property name="windowIcon">
    <iconset>
     <normaloff/>
    </iconset>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <layout class="QGridLayout" name="gridLayout_2" >
-    <item row="0" column="0" >
-     <widget class="QLabel" name="label_5" >
-      <property name="maximumSize" >
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="maximumSize">
        <size>
         <width>126</width>
         <height>16777215</height>
        </size>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
-      <property name="pixmap" >
+      <property name="pixmap">
        <pixmap>../../../../usr/share/icons/default.kde/32x32/actions/messagebox_info.png</pixmap>
       </property>
      </widget>
     </item>
-    <item row="0" column="1" colspan="5" >
-     <widget class="QLabel" name="labelHelp" >
-      <property name="frameShape" >
+    <item row="0" column="1" colspan="5">
+     <widget class="QLabel" name="labelHelp">
+      <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <property name="frameShadow" >
+      <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Help Text</string>
       </property>
-      <property name="wordWrap" >
+      <property name="wordWrap">
        <bool>true</bool>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="2" >
-     <widget class="QTextEdit" name="textHint" />
+    <item row="1" column="0" colspan="2">
+     <widget class="QTextEdit" name="textHint"/>
     </item>
-    <item row="1" column="2" colspan="4" >
-     <widget class="QTextEdit" name="textMain" />
+    <item row="1" column="2" colspan="4">
+     <widget class="QTextEdit" name="textMain"/>
     </item>
-    <item row="2" column="0" colspan="2" >
-     <widget class="QLabel" name="label" >
-      <property name="text" >
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
        <string>Hint</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="2" colspan="4" >
-     <widget class="QLabel" name="label_2" >
-      <property name="text" >
+    <item row="2" column="2" colspan="4">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
        <string>Main Text</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0" colspan="3" >
-     <widget class="QComboBox" name="listLearningCurve" >
+    <item row="3" column="0" colspan="3">
+     <widget class="QComboBox" name="listLearningCurve">
       <item>
-       <property name="text" >
+       <property name="text">
         <string>10 steps, first slow, then fast</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>20 steps, first slow, then fast</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>50 steps, first slow, then fast</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>10 steps, steady speed</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>20 steps, steady speed</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>50 steps, steady speed</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>10 steps, first fast, then slow</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>20 stepc, first fast, then slow</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>50 steps, first fast, then slow</string>
        </property>
       </item>
      </widget>
     </item>
-    <item row="3" column="3" >
-     <widget class="QComboBox" name="listProgress" />
+    <item row="3" column="3">
+     <widget class="QComboBox" name="listProgress"/>
     </item>
-    <item row="3" column="4" >
-     <widget class="QPushButton" name="pushRepeatStep" >
-      <property name="text" >
+    <item row="3" column="4">
+     <widget class="QPushButton" name="pushRepeatStep">
+      <property name="text">
        <string>Repeat Step</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="5" >
-     <widget class="QPushButton" name="pushNextStep" >
-      <property name="text" >
+    <item row="3" column="5">
+     <widget class="QPushButton" name="pushNextStep">
+      <property name="text">
        <string>Next Step</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0" colspan="3" >
-     <widget class="QLabel" name="labelLearningCurve" >
-      <property name="text" >
+    <item row="4" column="0" colspan="3">
+     <widget class="QLabel" name="labelLearningCurve">
+      <property name="text">
        <string>Learning Curve</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="3" >
-     <widget class="QLabel" name="labelProgress" >
-      <property name="text" >
+    <item row="4" column="3">
+     <widget class="QLabel" name="labelProgress">
+      <property name="text">
        <string>Progress</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>28</height>
+     <height>18</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile" >
-    <property name="title" >
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpenTextFile" />
-    <addaction name="actionOpenTranslationFile" />
-    <addaction name="actionNew" />
-    <addaction name="actionSave" />
-    <addaction name="actionSaveAs" />
-    <addaction name="separator" />
-    <addaction name="actionExit" />
+    <addaction name="actionOpenTextFile"/>
+    <addaction name="actionOpenTranslationFile"/>
+    <addaction name="actionNew"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuHelp" >
-    <property name="title" >
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout" />
+    <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menuEditText" >
-    <property name="title" >
+   <widget class="QMenu" name="menuEditText">
+    <property name="title">
      <string>Edit</string>
     </property>
-    <addaction name="actionModeDisplay" />
-    <addaction name="actionDeleteTranslation" />
+    <addaction name="actionModeDisplay"/>
+    <addaction name="actionDeleteTranslation"/>
    </widget>
-   <widget class="QMenu" name="menuEditTranslations" >
-    <property name="title" >
+   <widget class="QMenu" name="menuEditTranslations">
+    <property name="title">
      <string>Edit</string>
     </property>
-    <addaction name="actionModeDisplay" />
-    <addaction name="actionModeEditTranslations" />
+    <addaction name="actionModeDisplay"/>
+    <addaction name="actionModeEditTranslations"/>
    </widget>
-   <addaction name="menuFile" />
-   <addaction name="menuEditText" />
-   <addaction name="menuEditTranslations" />
-   <addaction name="menuHelp" />
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionIncreaseFont"/>
+    <addaction name="actionDecreaseFont"/>
+    <addaction name="actionSystemFont"/>
+    <addaction name="separator"/>
+    <addaction name="actionMorningTheme"/>
+    <addaction name="actionDayTheme"/>
+    <addaction name="actionEveningTheme"/>
+    <addaction name="actionNightTheme"/>
+    <addaction name="actionSystemColours"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEditText"/>
+   <addaction name="menuEditTranslations"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
-  <widget class="QToolBar" name="toolbarFile" >
-   <property name="windowTitle" >
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolbarFile">
+   <property name="windowTitle">
     <string>toolBar</string>
    </property>
-   <attribute name="toolBarArea" >
+   <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
-   <attribute name="toolBarBreak" >
+   <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionOpenTextFile" />
-   <addaction name="actionOpenTranslationFile" />
-   <addaction name="actionNew" />
-   <addaction name="actionSave" />
-   <addaction name="actionSaveAs" />
-   <addaction name="separator" />
-   <addaction name="actionModeEditText" />
-   <addaction name="actionModeEditTranslations" />
-   <addaction name="separator" />
-   <addaction name="actionAbout" />
-   <addaction name="actionExit" />
+   <addaction name="actionOpenTextFile"/>
+   <addaction name="actionOpenTranslationFile"/>
+   <addaction name="actionNew"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSaveAs"/>
+   <addaction name="separator"/>
+   <addaction name="actionModeEditText"/>
+   <addaction name="actionModeEditTranslations"/>
+   <addaction name="separator"/>
+   <addaction name="actionAbout"/>
+   <addaction name="actionExit"/>
   </widget>
-  <widget class="QToolBar" name="toolbarEditText" >
-   <property name="windowTitle" >
+  <widget class="QToolBar" name="toolbarEditText">
+   <property name="windowTitle">
     <string>toolBar_2</string>
    </property>
-   <attribute name="toolBarArea" >
+   <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
-   <attribute name="toolBarBreak" >
+   <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionModeDisplay" />
-   <addaction name="actionModeEditTranslations" />
+   <addaction name="actionModeDisplay"/>
+   <addaction name="actionModeEditTranslations"/>
   </widget>
-  <widget class="QToolBar" name="toolbarEditTranslations" >
-   <property name="windowTitle" >
+  <widget class="QToolBar" name="toolbarEditTranslations">
+   <property name="windowTitle">
     <string>toolBar_3</string>
    </property>
-   <attribute name="toolBarArea" >
+   <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
-   <attribute name="toolBarBreak" >
+   <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionModeDisplay" />
+   <addaction name="actionModeDisplay"/>
   </widget>
-  <action name="actionOpenTextFile" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <widget class="QToolBar" name="toolbarSettings">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionIncreaseFont"/>
+   <addaction name="actionDecreaseFont"/>
+   <addaction name="actionSystemFont"/>
+   <addaction name="separator"/>
+   <addaction name="actionMorningTheme"/>
+   <addaction name="actionDayTheme"/>
+   <addaction name="actionEveningTheme"/>
+   <addaction name="actionNightTheme"/>
+  </widget>
+  <action name="actionOpenTextFile">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/fileopen.png</normaloff>:/new/prefix1/fileopen.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Open Text File</string>
    </property>
   </action>
-  <action name="actionOpenTranslationFile" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionOpenTranslationFile">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/fileimport.png</normaloff>:/new/prefix1/fileimport.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Open Translation File</string>
    </property>
   </action>
-  <action name="actionExit" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/exit.png</normaloff>:/new/prefix1/exit.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionAbout" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/bookmark.png</normaloff>:/new/prefix1/bookmark.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>About</string>
    </property>
   </action>
-  <action name="actionModeDisplay" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionModeDisplay">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/text_block.png</normaloff>:/new/prefix1/text_block.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Display</string>
    </property>
   </action>
-  <action name="actionModeEditText" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionModeEditText">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/edit.png</normaloff>:/new/prefix1/edit.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Edit Text</string>
    </property>
   </action>
-  <action name="actionDeleteTranslation" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionDeleteTranslation">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/remove.png</normaloff>:/new/prefix1/remove.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Delete Translation</string>
    </property>
   </action>
-  <action name="actionModeEditTranslations" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionModeEditTranslations">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/run.png</normaloff>:/new/prefix1/run.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Edit Translations</string>
    </property>
   </action>
-  <action name="actionSave" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/filesave.png</normaloff>:/new/prefix1/filesave.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Save</string>
    </property>
   </action>
-  <action name="actionSaveAs" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/filesaveas.png</normaloff>:/new/prefix1/filesaveas.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Save As</string>
    </property>
   </action>
-  <action name="actionNew" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/filenew.png</normaloff>:/new/prefix1/filenew.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>New</string>
    </property>
   </action>
-  <action name="actionNewTranslation" >
-   <property name="icon" >
-    <iconset resource="resources/texttrainer.qrc" >
+  <action name="actionNewTranslation">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
      <normaloff>:/new/prefix1/add.png</normaloff>:/new/prefix1/add.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>New Translation</string>
    </property>
   </action>
+  <action name="actionIncreaseFont">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/viewmag+.png</normaloff>:/new/prefix1/viewmag+.png</iconset>
+   </property>
+   <property name="text">
+    <string>Increase Font Size</string>
+   </property>
+  </action>
+  <action name="actionDecreaseFont">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/viewmag-.png</normaloff>:/new/prefix1/viewmag-.png</iconset>
+   </property>
+   <property name="text">
+    <string>Decrease Font Size</string>
+   </property>
+  </action>
+  <action name="actionSystemFont">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/viewmagfit.png</normaloff>:/new/prefix1/viewmagfit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Default Font Size</string>
+   </property>
+  </action>
+  <action name="actionMorningTheme">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/weather-clouds.png</normaloff>:/new/prefix1/weather-clouds.png</iconset>
+   </property>
+   <property name="text">
+    <string>Morning Theme</string>
+   </property>
+  </action>
+  <action name="actionDayTheme">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/weather-clear.png</normaloff>:/new/prefix1/weather-clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Day Theme</string>
+   </property>
+  </action>
+  <action name="actionEveningTheme">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/weather-clouds-night.png</normaloff>:/new/prefix1/weather-clouds-night.png</iconset>
+   </property>
+   <property name="text">
+    <string>Evening Theme</string>
+   </property>
+  </action>
+  <action name="actionNightTheme">
+   <property name="icon">
+    <iconset resource="../resources/texttrainer.qrc">
+     <normaloff>:/new/prefix1/weather-clear-night.png</normaloff>:/new/prefix1/weather-clear-night.png</iconset>
+   </property>
+   <property name="text">
+    <string>Night Theme</string>
+   </property>
+  </action>
+  <action name="actionSystemColours">
+   <property name="text">
+    <string>System Colours</string>
+   </property>
+  </action>
  </widget>
- <layoutdefault spacing="6" margin="9" />
- <includes/>
+ <layoutdefault spacing="6" margin="9"/>
  <resources>
-  <include location="resources/texttrainer.qrc" />
+  <include location="../resources/texttrainer.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -368,11 +470,11 @@
    <receiver>QTextTrainer</receiver>
    <slot>close()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>330</x>
      <y>314</y>
     </hint>
@@ -380,19 +482,19 @@
   </connection>
  </connections>
  <designerdata>
-  <property name="gridDeltaX" >
+  <property name="gridDeltaX">
    <number>10</number>
   </property>
-  <property name="gridDeltaY" >
+  <property name="gridDeltaY">
    <number>10</number>
   </property>
-  <property name="gridSnapX" >
+  <property name="gridSnapX">
    <bool>true</bool>
   </property>
-  <property name="gridSnapY" >
+  <property name="gridSnapY">
    <bool>true</bool>
   </property>
-  <property name="gridVisible" >
+  <property name="gridVisible">
    <bool>true</bool>
   </property>
  </designerdata>
