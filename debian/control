@@ -8,7 +8,7 @@ Homepage: http://home.arcor.de/j_kanev/texttrainer.html
 
 Package: texttrainer
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, qt4-dev-tools, libqt4-dev, cmake
 Description: learn native or foreign language texts by heart
  .
  TextTrainer is a program which helps you memorise poems

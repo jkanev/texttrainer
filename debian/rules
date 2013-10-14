@@ -9,10 +9,6 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
-
-
-
-
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
@@ -20,14 +16,13 @@ configure-stamp:
 
 	touch configure-stamp
 
-
 build: build-stamp
 
 build-stamp: configure-stamp  
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE)
+	cd build; cmake ..; make all;
 	
 	touch $@
 
@@ -37,9 +32,12 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	$(MAKE) DEB_DESTDIR=$(CURDIR)/debian/texttrainer clean
+	rm -r -f bin/*
+	rm -r -f build/*
 
 	dh_clean 
+
+	# create tarfile for subsequent source package generation
 
 install: build
 	dh_testdir
@@ -77,7 +75,7 @@ binary-arch: build install
 #	dh_installinfo
 	dh_installman $(CURDIR)/debian/texttrainer.1
 	dh_link
-	dh_strip
+	dh_strip --exclude=Cache
 	dh_compress
 	dh_fixperms
 #	dh_perl
