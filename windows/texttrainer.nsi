@@ -7,12 +7,12 @@
 
 Name "TextTrainer"
 
-!define VERSION "0.0.4"
+!define VERSION "0.1.0"
 
 OutFile "TextTrainer-${VERSION}_Setup.exe"
 
 InstallDir $PROGRAMFILES\TextTrainer
-RequestExecutionLevel user ; application privileges for Vista
+RequestExecutionLevel admin ; application privileges for Vista
 
 !include Library.nsh
 
@@ -43,14 +43,11 @@ Section "install.core"
 
 	; install language files
 	SetOutPath $INSTDIR
-	File /r /x ".svn" "..\i18n"
+	File /r "..\i18n"
 
 	; install main software
 	SetOutPath $INSTDIR
-	File	 ..\bin\texttrainer.exe
-	File mingwm10.dll
-	File QtCore4.dll
-	File QtGui4.dll
+        File /r "..\bin\*"
 	
 	; write registry entries
 	WriteRegStr HKEY_LOCAL_MACHINE "Software\TextTrainer\TextTrainer" "i18n" "$INSTDIR\i18n\"
@@ -72,10 +69,16 @@ SectionEnd
 Section "un.install.core"
 	
 	; delete libraries
-	!insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\mingwm10.dll
-	!insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\QtCore4.dll
-	!insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\QtGui4.dll
-	
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\icudt53.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\icuin53.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\icuuc53.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\libgcc_s_dw2-1.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\libstdc++-6.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\libwinpthread-1.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\Qt5Core.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\Qt5Gui.dll
+        !insertmacro UnInstallLib REGDLL SHARED REBOOT_NOTPROTECTED $SYSDIR\Qt5Widgets.dll
+
 	; delete registry entries
 	DeleteRegKey HKEY_LOCAL_MACHINE "TextTrainer"
 	DeleteRegKey HKEY_CURRENT_USER "TextTrainer"
