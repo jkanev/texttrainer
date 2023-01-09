@@ -17,3 +17,4 @@ FORMS += ui/texttrainer-android.ui ui/texttrainer.ui
 SOURCES += src/meaning.cpp src/qtexttrainer.cpp src/word.cpp
 RESOURCES += resources/texttrainer.qrc
 TRANSLATIONS += i18n/texttrainer_de.ts
+QT += widgets
